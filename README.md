@@ -1,2 +1,0 @@
-# ads_pdc
-PUBLICIDAD
