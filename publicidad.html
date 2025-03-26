@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicidad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f3f3f3;
+        }
+        .popup {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background: #ff6f61;
+            color: white;
+            border-radius: 10px;
+            display: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .popup button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: white;
+            color: #ff6f61;
+            border: none;
+            cursor: pointer;
+        }
+        .banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 0;
+        }
+        form {
+            margin-top: 30px;
+        }
+        input, textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            const popup = document.querySelector('.popup');
+            popup.style.display = 'block';
+        };
+        function closePopup() {
+            const popup = document.querySelector('.popup');
+            popup.style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <!-- Popup -->
+    <div class="popup">
+        <h2>¡Bienvenido!</h2>
+        <p>Explora las opciones de publicidad pagada</p>
+        <button onclick="closePopup()">Cerrar</button>
+    </div>
+
+    <!-- Contenido Principal -->
+    <h1>Sección de Publicidad</h1>
+    <p>Ofrecemos espacio para tus campañas.</p>
+    
+    <!-- Formulario de Contacto -->
+    <form method="POST">
+        <input type="text" name="nombre" placeholder="Tu Nombre" required>
+        <input type="email" name="correo" placeholder="Tu Correo" required>
+        <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <!-- Banner Inferior -->
+    <div class="banner">
+        <p>Promociona tu negocio aquí: ¡Contáctanos ahora!</p>
+    </div>
+</body>
+</html>
