@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicidad</title>
+    <!-- Fonts y Slick.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            background: linear-gradient(45deg, #ff6f61, #ff9473);
+            color: #333;
             text-align: center;
-            background-color: #f3f3f3;
         }
         .popup {
             position: fixed;
@@ -19,33 +24,58 @@
             transform: translate(-50%, -50%);
             width: 300px;
             padding: 20px;
-            background: #ff6f61;
-            color: white;
+            background: white;
+            color: #ff6f61;
             border-radius: 10px;
             display: none;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
         }
         .popup button {
             margin-top: 10px;
             padding: 10px 20px;
-            background-color: white;
-            color: #ff6f61;
-            border: none;
-            cursor: pointer;
-        }
-        .banner {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
             background-color: #ff6f61;
             color: white;
-            padding: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translate(-50%, -60%); }
+            100% { opacity: 1; transform: translate(-50%, -50%); }
+        }
+        .slider {
+            max-width: 80%;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .slider img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .progress-bar {
+            width: 80%;
+            margin: 20px auto;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress-bar div {
+            width: 70%; /* Ajusta el porcentaje según los espacios disponibles */
+            background: #ff6f61;
+            height: 20px;
         }
         form {
             margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
         }
         input, textarea {
-            width: 80%;
+            width: 90%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
@@ -59,31 +89,40 @@
             cursor: pointer;
             border-radius: 5px;
         }
-    </style>
-    <script>
-        window.onload = () => {
-            const popup = document.querySelector('.popup');
-            popup.style.display = 'block';
-        };
-        function closePopup() {
-            const popup = document.querySelector('.popup');
-            popup.style.display = 'none';
+        .banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 0;
         }
-    </script>
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 </head>
 <body>
     <!-- Popup -->
-    <div class="popup">
+    <div class="popup" id="popup">
         <h2>¡Bienvenido!</h2>
-        <p>Explora las opciones de publicidad pagada</p>
+        <p>Espacios limitados de publicidad disponibles.</p>
         <button onclick="closePopup()">Cerrar</button>
     </div>
 
-    <!-- Contenido Principal -->
-    <h1>Sección de Publicidad</h1>
-    <p>Ofrecemos espacio para tus campañas.</p>
-    
-    <!-- Formulario de Contacto -->
+    <!-- Carrusel -->
+    <div class="slider">
+        <div><img src="anuncio1.jpg" alt="Anuncio 1"></div>
+        <div><img src="anuncio2.jpg" alt="Anuncio 2"></div>
+        <div><img src="anuncio3.jpg" alt="Anuncio 3"></div>
+    </div>
+
+    <!-- Barra de progreso -->
+    <div class="progress-bar">
+        <div></div>
+    </div>
+    <p>70% de los espacios ya están ocupados</p>
+
+    <!-- Formulario -->
     <form method="POST">
         <input type="text" name="nombre" placeholder="Tu Nombre" required>
         <input type="email" name="correo" placeholder="Tu Correo" required>
@@ -91,9 +130,28 @@
         <button type="submit">Enviar</button>
     </form>
 
-    <!-- Banner Inferior -->
+    <!-- Banner inferior -->
     <div class="banner">
         <p>Promociona tu negocio aquí: ¡Contáctanos ahora!</p>
     </div>
+
+    <script>
+        // Mostrar el popup al cargar la página
+        window.onload = () => {
+            document.getElementById('popup').style.display = 'block';
+        };
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        // Inicializar el carrusel
+        $(document).ready(function(){
+            $('.slider').slick({
+                autoplay: true,
+                dots: true,
+                arrows: false
+            });
+        });
+    </script>
 </body>
 </html>
