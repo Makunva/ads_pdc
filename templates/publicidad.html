@@ -28,6 +28,11 @@
         <div></div>
     </div>
     <p>70% de los espacios ya están ocupados</p>
+    <!-- Mensaje Publicitario -->
+    <div class="call-to-action">
+        <h3>¡Únete a nosotros y aumenta tu visibilidad!</h3>
+        <p>Obtén más exposición y alcance más clientes potenciales con nuestra plataforma de publicidad. ¡No pierdas esta oportunidad de promocionar tu negocio!</p>
+    </div>
     <!-- Formulario -->
     <form method="POST">
         {% with messages = get_flashed_messages() %}
@@ -37,33 +42,13 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
+        <h4>Contactanos</h4>
         <input type="text" name="nombre" placeholder="Tu Nombre" required>
         <input type="email" name="correo" placeholder="Tu Correo" required>
-        <textarea name="mensaje" placeholder="Tu Mensaje" required></textarea>
+        <input type="text" name="negocio" placeholder="Nombre de Tu Negocio" required>
+        <textarea name="mensaje" placeholder="Describe tu solicitud de publicidad" required></textarea>
         <button type="submit">Enviar</button>
     </form>
     <!-- Banner inferior -->
     <div class="banner">
-        <p>Promociona tu negocio aquí: ¡Contáctanos ahora!</p>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script>
-        // Mostrar el popup al cargar la página
-        window.onload = () => {
-            document.getElementById('popup').style.display = 'block';
-        };
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
-        // Inicializar el carrusel
-        $(document).ready(function(){
-            $('.slider').slick({
-                autoplay: true,
-                dots: true,
-                arrows: false
-            });
-        });
-    </script>
-</body>
-</html>
+        <
